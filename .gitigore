@@ -11,14 +11,11 @@
 *~
 
 # Vagrant stuff
-*.vagrant/
 *.vagrant
 */.vagrant
-*/.vagrant/
 test/.vagrant
 /.vagrant
 .vagrant/
-/vagrant
 
 # Bundler/Rubygems
 *.gem
