@@ -1,0 +1,28 @@
+--- 
+- name: Update system packages 
+  hosts: all
+  gather_facts: true
+  become: true
+  tasks: 
+    - name: Checking updates (RedHat/CentOS)
+      yum:
+       security: yes
+       state: latest
+      check_mode: yes
+      register: yum_output
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat'
+
+    - name: Print available updates (Redhat/CentOS)
+      debug:
+       var: yum_output
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat'
+
+    - name: Checking updates (Debian/Ubuntu)
+      command: "apt-get --no-download -s dist-upgrade -V | awk '/^Inst.*security/ {print $2}"
+      register: apt_output
+
+    - name: Print available updates (Debian/Ubuntu)
+      debug:
+       var: apt_output
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+

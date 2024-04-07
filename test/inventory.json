@@ -1,0 +1,22 @@
+{
+  "all": {
+    "hosts": {
+      "mail.example.com": null
+    },
+    "children": {
+      "webservers": {
+        "hosts": {
+          "foo.example.com": null,
+          "bar.example.com": null
+        }
+      },
+      "local": {
+        "hosts": {
+          "localhost": null,
+          "two.example.com": null,
+          "three.example.com": null
+        }
+      }
+    }
+  }
+}

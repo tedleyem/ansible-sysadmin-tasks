@@ -1,0 +1,15 @@
+--- 
+- name: Check Disk Space
+  hosts: all
+  gather_facts: true
+  become: true
+  tasks:     
+
+    - name: Check Disk Space Usage
+      command: 'df -h'
+      register: disk_space
+
+    - name:
+      debug:
+        msg: "disk_space.stdout_lines"
+                    

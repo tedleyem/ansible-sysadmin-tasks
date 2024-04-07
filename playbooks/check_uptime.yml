@@ -1,0 +1,20 @@
+- name: Check Uptime 
+  hosts: all
+  gather_facts: true
+  become: true
+  tasks:
+    - name: get hostname
+      command: "hostname"
+      changed_when: false
+      register: hostname
+
+    - name: get uptime
+      shell: "uptime | grep -ohe 'up .*' | sed 's/,//g' | awk '{ print $2" "$3 }' "
+      changed_when: false
+      register: uptime
+
+    - debug: 
+        var: "{{ item }}"
+      with_items:
+        - hostname.stdout
+        - uptime.stdout

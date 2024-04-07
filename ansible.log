@@ -1,0 +1,165 @@
+2024-04-06 22:25:42,295 p=60589 u=tmeralus n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-06 22:25:42,299 p=60589 u=tmeralus n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2024-04-06 22:25:42,429 p=60589 u=tmeralus n=ansible | ERROR! conflicting action statements: debug, var
+
+The error appears to be in '/home/tmeralus/projects/ansible/ansible-sysadmin-tasks/playbooks/check_disk_space.yml': line 12, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - debug:
+      ^ here
+
+2024-04-06 22:26:44,629 p=60689 u=tmeralus n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-06 22:26:44,631 p=60689 u=tmeralus n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2024-04-06 22:26:44,707 p=60689 u=tmeralus n=ansible | ERROR! conflicting action statements: debug, msg
+
+The error appears to be in '/home/tmeralus/projects/ansible/ansible-sysadmin-tasks/playbooks/check_disk_space.yml': line 12, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - debug:
+      ^ here
+
+2024-04-06 22:27:19,935 p=60698 u=tmeralus n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-06 22:27:19,938 p=60698 u=tmeralus n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2024-04-06 22:27:20,022 p=60698 u=tmeralus n=ansible | PLAY [Check Disk Space] *************************************************************************************
+2024-04-06 22:27:20,022 p=60698 u=tmeralus n=ansible | skipping: no hosts matched
+2024-04-06 22:27:20,022 p=60698 u=tmeralus n=ansible | PLAY RECAP **************************************************************************************************
+2024-04-06 22:27:37,004 p=60705 u=tmeralus n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-06 22:27:37,006 p=60705 u=tmeralus n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2024-04-06 22:27:37,065 p=60705 u=tmeralus n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/tmeralus/projects/ansible/ansible-sysadmin-tasks/playbooks/check_logs.yml': line 37, column 15, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+        src: logs_output.txt.j2
+          dest: /tmp/logs-{{ inventory_hostname }}-{{ current_date_time.stdout }}.txt
+              ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2024-04-06 22:28:07,964 p=60711 u=tmeralus n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-06 22:28:07,967 p=60711 u=tmeralus n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2024-04-06 22:28:08,025 p=60711 u=tmeralus n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/tmeralus/projects/ansible/ansible-sysadmin-tasks/playbooks/check_logs.yml': line 38, column 15, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+        src: logs_output.txt.j2
+          dest: /tmp/logs-{{ inventory_hostname }}-{{ current_date_time.stdout }}.txt
+              ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2024-04-06 22:28:52,568 p=60719 u=tmeralus n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-06 22:28:52,570 p=60719 u=tmeralus n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2024-04-06 22:28:52,629 p=60719 u=tmeralus n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/tmeralus/projects/ansible/ansible-sysadmin-tasks/playbooks/check_logs.yml': line 38, column 15, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+        src: logs_output.txt.j2
+          dest: "/tmp/logs-{{ inventory_hostname }}-{{ current_date_time.stdout }}.txt"
+              ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2024-04-06 22:29:11,846 p=60724 u=tmeralus n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-06 22:29:11,848 p=60724 u=tmeralus n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2024-04-06 22:29:11,996 p=60724 u=tmeralus n=ansible | PLAY [DUMP LOGS] ********************************************************************************************
+2024-04-06 22:29:11,996 p=60724 u=tmeralus n=ansible | skipping: no hosts matched
+2024-04-06 22:29:11,996 p=60724 u=tmeralus n=ansible | PLAY RECAP **************************************************************************************************
+2024-04-06 22:29:28,722 p=60738 u=tmeralus n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-06 22:29:28,725 p=60738 u=tmeralus n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2024-04-06 22:29:28,805 p=60738 u=tmeralus n=ansible | PLAY [Check current RAM usage] ******************************************************************************
+2024-04-06 22:29:28,805 p=60738 u=tmeralus n=ansible | skipping: no hosts matched
+2024-04-06 22:29:28,805 p=60738 u=tmeralus n=ansible | PLAY RECAP **************************************************************************************************
+2024-04-06 22:29:41,003 p=60745 u=tmeralus n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-06 22:29:41,005 p=60745 u=tmeralus n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2024-04-06 22:29:41,079 p=60745 u=tmeralus n=ansible | ERROR! failed at splitting arguments, either an unbalanced jinja2 block or quotes: apt-get --no-download -s dist-upgrade -V | awk '/^Inst.*security/ {print $2}
+
+The error appears to be in '/home/tmeralus/projects/ansible/ansible-sysadmin-tasks/playbooks/check_security_packages.yml': line 20, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: Checking updates (Debian/Ubuntu)
+      ^ here
+
