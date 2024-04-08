@@ -42,6 +42,7 @@ env.bak/
 venv.bak/
 venv
 env
-.vagrant 
+.vagrant
+*/.vagrant
 tests/Vagrantfile_test
 tests/Vagrantfile_*
