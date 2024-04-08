@@ -22,10 +22,10 @@ RUN mkdir /var/run/sshd; \
 
 RUN useradd --create-home -s /bin/bash vagrant; \
     echo -e "vagrant\nvagrant" | (passwd --stdin vagrant); \
+    mkdir -p /etc/sudoers.d; \
+    touch /etc/sudoers.d/vagrant; \
     echo 'vagrant ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/vagrant; \
     chmod 440 /etc/sudoers.d/vagrant
-
-RUN usermod -aG sudo vagrant 
 
 RUN mkdir -p /home/vagrant/.ssh; \
     chmod 700 /home/vagrant/.ssh
