@@ -2,17 +2,12 @@
 - name: Check Listed Running Services
   hosts: all
   gather_facts: true
-  become: true
-  vars_files:
-    - ../vars/main.yml
-  tasks: 
-
-    # service_name var can be changed under ../vars/main.yml 
-    - name: Check if {{ service_name }}  is running
-      command: systemctl status {{ service_name }}
-      register: result
+  tasks:  
+    - name: Check list of all running services 
+      command: systemctl list-units --type=service
+      register: services
       ignore_errors: yes
 
     - name: showing report
       debug:
-      var: result.stdout
+        msg: "{{ services.stdout | to_nice_json  }}"

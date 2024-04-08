@@ -1,10 +1,8 @@
 ---
 - hosts: all
   gather_facts: true
-  become: true
   vars_files:
     - ../vars/main.yml
-
   tasks:
     - name: Confirming OS Family
       ansible.builtin.debug:

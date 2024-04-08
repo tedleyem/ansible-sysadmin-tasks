@@ -2,5 +2,5 @@
   tasks:
     - name: Run sudo -v to check sudo access
       command: sudo -v
-      become: true
+    
 

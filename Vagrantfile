@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "ubuntu" do |ubuntu|
     ubuntu.vm.provider "docker" do |docker|
-      docker.vagrant_vagrantfile = "host/Vagrantfile"
+      docker.vagrant_vagrantfile = "tests/host/Vagrantfile"
       docker.name = "dev-ubuntu"
       # To build from a Dockerfile in test dir
       # comment out docker.image and uncomment docker.build line
@@ -38,13 +38,13 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "ansible" do |ansible| 
     ansible.verbose = "v"
-    ansible.inventory_path = "inventory.yml"
+    ansible.inventory_path = "tests/inventory.yml"
     ansible.groups = {
       "group" => ["vagrant"],
     } 
     # Mention the fully qualified path and name of playbook. 
     # If no path mentioned, vagrant will take the base directory where Vagrantfile resides  
-    ansible.playbook="../playbooks/test.yml" 
+    ansible.playbook="playbooks/user_delete.yml" 
   end  
 
 end

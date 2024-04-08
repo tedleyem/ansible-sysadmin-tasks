@@ -1,7 +1,6 @@
 - name: Check Uptime 
   hosts: all
   gather_facts: true
-  become: true
   tasks:
     - name: get hostname
       command: "hostname"
@@ -9,12 +8,14 @@
       register: hostname
 
     - name: get uptime
-      shell: "uptime | grep -ohe 'up .*' | sed 's/,//g' | awk '{ print $2" "$3 }' "
+      shell: "uptime"
       changed_when: false
       register: uptime
 
-    - debug: 
-        var: "{{ item }}"
-      with_items:
-        - hostname.stdout
-        - uptime.stdout
+    - name: get uptime
+      debug:   
+        msg: | 
+          hostname : {{ inventory_hostname }}
+          uptime: {{ uptime.stdout }}
+
+ 

@@ -2,9 +2,7 @@
 - name: Check Disk Space
   hosts: all
   gather_facts: true
-  become: true
-  tasks:     
-
+  tasks:
     - name: Check Disk Space Usage
       command: 'df -h'
       register: disk_space
