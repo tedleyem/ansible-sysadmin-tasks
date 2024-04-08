@@ -35,6 +35,8 @@ RUN useradd -m -G sudo -s /bin/bash vagrant && \
     echo 'vagrant ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/vagrant && \
     chmod 440 /etc/sudoers.d/vagrant
 
+RUN usermod -aG sudo vagrant 
+
 # Establish ssh keys for vagrant
 RUN mkdir -p /home/vagrant/.ssh; \
     chmod 700 /home/vagrant/.ssh

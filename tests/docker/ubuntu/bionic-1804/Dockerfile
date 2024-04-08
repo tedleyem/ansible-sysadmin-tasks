@@ -14,11 +14,7 @@ RUN /bin/bash -e /scripts/ubuntu_apt_config.sh && \
     ln -s /scripts/security_updates_ubuntu.sh /security_updates.sh && \
     echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
     /bin/bash -e /security_updates.sh && \
-    apt-get install -yqq \
-      ansible \
-      curl \
-      gpg \
-      apt-transport-https \
+    apt-get install -yqq ansible curl gpg apt-transport-https sudo
     && \
     /bin/bash -e /scripts/install_s6.sh && \
     /bin/bash -e /scripts/install_goss.sh && \
@@ -29,6 +25,8 @@ RUN /bin/bash -e /scripts/ubuntu_apt_config.sh && \
     /bin/bash -e /clean.sh && \
     # out of order execution, has a dpkg error if performed before the clean script, so keeping it here,
     apt-get remove --purge --auto-remove systemd --allow-remove-essential -y
+
+RUN usermod -aG sudo vagrant 
 
 # Overlay the root filesystem from this repo
 COPY ./container/root /

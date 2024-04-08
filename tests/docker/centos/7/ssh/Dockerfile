@@ -17,6 +17,8 @@ RUN echo -e "vagrant\nvagrant" | (passwd --stdin vagrant)
 RUN echo 'vagrant ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/vagrant
 RUN chmod 440 /etc/sudoers.d/vagrant
 
+RUN usermod -aG sudo vagrant 
+
 RUN mkdir -p /home/vagrant/.ssh
 RUN chmod 700 /home/vagrant/.ssh
 ADD https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub /home/vagrant/.ssh/authorized_keys
