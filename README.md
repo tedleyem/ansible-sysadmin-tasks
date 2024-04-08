@@ -46,6 +46,8 @@ Once installed with virtualbox set the provider and run.
 $ vagrant up --provider=docker
 ```
 
+## Why Vagrant with Docker?
 
+ This was inspired by Apple's introduction of the M1 chip which is ARM based. That means that testing solutions which use Vagrant and VirtualBox don't work on Apple M1 because VirtualBox requires an Intel processor. This triggered a search and solution for a virtual development environment that works with ARM and thus Apple M1 computers.  
 
-
+[Docker](https://www.docker.com) has introduced [Docker Desktop for Apple silicon](https://docs.docker.com/docker-for-mac/apple-silicon/) that runs Docker on Macs that have the Apple M1 chip. By using Docker as a provisioner for Vagrant, you can simulate the same experience as developers using Vagrant with VirtualBox. This is one case where you actually do want a Docker container to behave like a VM.
