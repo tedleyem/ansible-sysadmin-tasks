@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
     } 
     # Mention the fully qualified path and name of playbook. 
     # If no path mentioned, vagrant will take the base directory where Vagrantfile resides  
-    ansible.playbook="playbooks/user_delete.yml" 
+    ansible.playbook="playbooks/main.yml" 
   end  
 
 end
